@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Demo1Index from "./demo1/index.jsx";
-import Demo2Index from "./demo2/index.jsx";
+import Index from "./demo2/index.jsx";
 
 function Page1() {
     return (
@@ -16,7 +16,7 @@ function Page1() {
                     </li>
                 </ul>
                 <Route path='/demo1' exact component={Demo1Index}></Route>
-                <Route path='/demo2' exact component={Demo2Index}></Route>
+                <Route path='/demo2' exact component={Index}></Route>
             </Router>
         </>
     )
