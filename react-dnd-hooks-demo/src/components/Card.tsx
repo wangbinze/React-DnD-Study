@@ -44,7 +44,6 @@ const Card: React.FC<IListData & IProps> = ({ bg, category, index, moveCard, id 
             }
             const dragIndex = item.index;
             const hoverIndex = index;
-
             // 拖拽元素下标与鼠标悬浮元素下标一致时，不进行操作
             if (dragIndex === hoverIndex) {
                 return;
@@ -52,7 +51,7 @@ const Card: React.FC<IListData & IProps> = ({ bg, category, index, moveCard, id 
 
             // 确定屏幕上矩形范围
             const hoverBoundingRect = ref.current!.getBoundingClientRect();
-
+            console.log(hoverBoundingRect,'------',ref.current!,'------',ref.current,55)
             // 获取中点垂直坐标
             const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
 

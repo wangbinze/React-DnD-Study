@@ -36,6 +36,8 @@ const List: React.FC<IListProps> = ({cardList, changeCardList}) => {
          * 1、如果此时拖拽的组件是 Box 组件，则 dragIndex 为 undefined，则此时修改，则此时修改 cardList 中的占位元素的位置即可
          * 2、如果此时拖拽的组件是 Card 组件，则 dragIndex 不为 undefined，此时替换 dragIndex 和 hoverIndex 位置的元素即可
          */
+    console.log(dragIndex, 'dragIndex', 39)
+
         if (dragIndex === undefined) {
             const lessIndex = cardList.findIndex((item: IListData) => item.id === -1);
             changeCardList(update(cardList, {
