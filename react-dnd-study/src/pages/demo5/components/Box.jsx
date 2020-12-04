@@ -6,7 +6,7 @@
 
 import React from 'react';
 import { useDrag } from "react-dnd";
-import ItemTypes from '../ItemTypes';
+import ItemTypes from '../types/ItemTypes';
 
 
 let id = 1;
@@ -28,7 +28,8 @@ const Box = ({ bg, city, cardList, changeCardList }) => {
   };
   // 使用useDrag
   const [, drag] = useDrag({
-    //这个是必填的  
+    // monitor(监控，监听)
+    //这个是必填的，被拖拽的，和放置目标源中的 accept 是对应的
     item: box,
     // 可选，拖动操作开始时触发。不需要返回任何内容，但是如果返回对象，它将覆盖item规范的默认属性
     /**
@@ -48,7 +49,7 @@ const Box = ({ bg, city, cardList, changeCardList }) => {
       console.log(box, 47)
       return box;
     },
-    // 可选，当拖动停止时，end被调用
+    // 可选，当拖动停止时，end被调用，和begin一一对应的
     end(_, monitor) {
       const uselessIndex = cardList.findIndex((item) => item.id === -1);
       console.log(uselessIndex, 'uselessIndex');
@@ -64,6 +65,14 @@ const Box = ({ bg, city, cardList, changeCardList }) => {
       }
       // 更新 cardList 数据源
       changeCardList(cardList);
+    },
+    /**
+     * 可选的。收集功能。
+     * 它应该返回道具的简单对象以返回注入到组件中。
+     * 接收两个参数，monitor和props。
+     */
+    collect: (monitor) => {
+      console.log(123)
     },
   })
   return (

@@ -1,6 +1,10 @@
+/**
+ * 根据放入 Box 生成的 Card 组件
+ */
+
 import React, { useRef, useMemo, useEffect } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
-import ItemTypes from '../ItemTypes.js';
+import ItemTypes from '../types/ItemTypes.js';
 
 import OrderListSvg from '../assets/order-list.png';
 import DeleteListSvg from '../assets/delete.png';
@@ -38,6 +42,7 @@ const Card = ({ bg, city, index, moveCard, id, deleteCard }) => {
   });
   const [, drop] = useDrop({
     accept: ItemTypes.Card,
+    // 此方法会一直触发
     hover(item, monitor) {
       if (!ref.current) {
         return;

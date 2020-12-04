@@ -6,7 +6,7 @@
 import React, { useCallback } from 'react';
 import update from 'immutability-helper';
 import { useDrop } from 'react-dnd';
-import ItemTypes from '../ItemTypes';
+import ItemTypes from '../types/ItemTypes';
 import Card from './Card';
 
 const placeBucketStyle = {
@@ -56,6 +56,7 @@ const PlaceBucketList = ({ cardList, changeCardList }) => {
   const deleteCard = useCallback((index) => {
     console.log(index, 57, cardList)
     changeCardList(update(cardList, {
+      // 和js中的splice使用方式相同
       $splice: [[index, 1]],
     }));
   })
